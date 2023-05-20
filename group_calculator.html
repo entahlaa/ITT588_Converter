@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decimal-Binary Converter</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+          rel="stylesheet" />
+    <!-- Stylesheet -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-image: url('mathhh.jpg');
+            background-size: cover;
+          
+        }
+        fieldset {
+            background-color: #FF7542;
+            width: 80vmin;
+            max-width: 37.5em;
+            padding: 3em 2.5em;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 0.62em;
+            box-shadow: 0 1.2em 2.5em rgba(0, 21, 44, 0.18);
+        }
+            fieldset legend {
+                font-weight: bold;
+                font-size: 100px;
+                color: #301B28;
+            }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            header .logo {
+                position: relative;
+                font-weight: 600;
+                color: #fff;
+                text-decoration: none;
+                font-size: 2em;
+            }
+
+            header .navigation {
+                position: relative;
+                display: flex;
+            }
+            header img{
+                width:30%;
+                height: 30%;
+            }
+                header .navigation li {
+                    list-style: none;
+                }
+
+                    header .navigation li a {
+                        display: inline-block;
+                        color: #301B28;
+                        font-weight: 400;
+                        margin-left: 10px;
+                        padding: 8px 15px;
+                        border-radius: 40px;
+                        text-decoration: none;
+                    }
+
+          
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: 500;
+            font-weight: bold;
+            color: #523634;
+        }
+
+        input {
+            position: relative;
+            font-size: 1.1em;
+            width: 100%;
+            padding: 0.5em;
+            border-radius: 0.2em;
+            border: 1.5px solid black;
+            color: black;
+            outline: none;
+        }
+        .wrapper{
+            justify-content: space-between;
+            gap:1.8em;
+            text-align:center;
+           
+        }
+		.copyright {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: left;
+        }
+
+            input:focus {
+                border-color: #0075ff;
+            }
+
+        #error-msg {
+            text-align: center;
+            margin-top: 1.25em;
+            color: #301B28;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="group_calculator.html" class="logo"><img src="logo.png" /></a>
+        <ul class="navigation">
+            <li><a href="group_calculator.html"><b>Converter</b></a></li>
+            <li><a href="aboutus.html"><b>About</b></a></li>
+        </ul>
+    </header>
+    
+    <section>
+        <fieldset>
+            <legend>Converter</legend>
+
+            <div class="wrapper">
+                <div class="input-wrapper">
+                    <label for="bin-inp">Binary:</label>
+                    <input type="text" id="bin-inp" />
+                </div>
+                <div class="input-wrapper">
+                    <label for="dec-inp">Decimal:</label>
+                    <input type="number" id="dec-inp" />
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="oct-inp">Octa:</label>
+                    <input type="text" id="oct-inp" />
+                </div>
+                <div class="input-wrapper">
+                    <label for="hex-inp">Hexadecimal:</label>
+                    <input type="text" id="hex-inp" />
+                </div>
+            </div>
+
+            <p id="error-msg"></p>
+        </fieldset>
+        <!-- Script -->
+        <script>
+//Initial References
+let decInp = document.getElementById("dec-inp");
+let binInp = document.getElementById("bin-inp");
+let octInp = document.getElementById("oct-inp");
+let hexInp = document.getElementById("hex-inp");
+let errorMsg = document.getElementById("error-msg");
+
+function octalValidator(octInp) {
+                //Check if the number is a valid octal number
+                var octalRegex = /^[0-7]+$/;
+                return octalRegex.test(octInp);
+}
+
+//Convert decimal when user inputs in the decimal field
+decInp.addEventListener("input", () => {
+                let decValue = parseInt(decInp.value);
+                //Converts the decimal value to binary
+                binInp.value = decValue.toString(2);
+                //converts decimal value to octal
+                octInp.value = decValue.toString(8);
+                //converts decimal value to hexadecimal
+                hexInp.value = decValue.toString(16);
+});
+
+
+
+// convert hex when user input in the hexadecimal field
+hexInp.addEventListener("input", () => {
+                let hexValue = parseInt(hexInp.value, 16);
+                decInp.value = hexValue.toString(10);
+                binInp.value = hexValue.toString(2);
+                octInp.value = hexValue.toString(8);
+
+});
+
+// convert octal when user input in the octal field
+octInp.addEventListener("input", () => {
+                let octValue = octInp.value;
+
+                if (octalValidator(octValue)) {
+                    let octValue = parseInt(octInp.value, 8);
+                    decInp.value = octValue.toString(10);
+                    binInp.value = octValue.toString(2);
+                    hexInp.value = octValue.toString(16);
+                    errorMsg.textContent = "";
+                }
+                else {
+                    errorMsg.textContent = "Please Enter An Valid Octal Input";
+                }
+});
+
+//Convert binary when user inputs in the binary field
+binInp.addEventListener("input", () => {
+                let binValue = binInp.value;
+                //If the binary number is valid convert it to decimal,octal and hexadecimal
+                if (binValidator(binValue)) {
+                    decInp.value = parseInt(binValue, 2);
+                    let val1 = parseInt(binValue, 2);
+                    hexInp.value = val1.toString(16);
+                    octInp.value = val1.toString(8);
+                    errorMsg.textContent = "";
+                }
+
+
+
+                //Else display an error message
+                else {
+                    errorMsg.textContent = "Please Enter An Valid Binary Input";
+                }
+
+                //Function to check if the binary number is valid i.e it does not contain any number other than 0 and 1
+                function binValidator(num) {
+                    for (let i = 0; i < num.length; i++) {
+                        if (num[i] != "0" && num[i] != "1") {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+});
+        </script>
+    </section>
+	<div class="copyright">
+	 <footer>
+    <p>&copy; 2023 Number Converter. All rights reserved. | Disclaimer: The information on this website 
+	<br>
+	is for general purposes only and does not constitute legal, financial, or professional advice.</p>
+  </footer>
+  </div>
+</body>
+</html>

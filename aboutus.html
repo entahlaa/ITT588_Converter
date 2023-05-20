@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>about us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-image: url('mathhh.jpg');
+            background-size: cover;
+        }
+
+        header {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+            header .logo {
+                position: relative;
+                font-weight: 600;
+                color: #fff;
+                text-decoration: none;
+                font-size: 2em;
+            }
+
+            header .navigation {
+                position: relative;
+                display: flex;
+            }
+
+            header img {
+                width: 30%;
+                height: 30%;
+            }
+
+            header .navigation li {
+                list-style: none;
+            }
+
+                header .navigation li a {
+                    display: inline-block;
+                    color: #301B28;
+                    font-weight: 400;
+                    margin-left: 10px;
+                    padding: 8px 15px;
+                    border-radius: 40px;
+                    text-decoration: none;
+                }
+
+        .infocardContainer * {
+            font-family: 'Fira Sans Condensed', sans-serif;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+            a:visited {
+                color: #555566;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .infocardContainer {
+            display: flex;
+            height: 200px;
+            width: 200px;
+            border-radius: 100px;
+            background: rgb(0, 159, 255);
+            background: linear-gradient(121deg, rgba(255, 255, 255, 0) 13%, rgba(0, 159, 255, 1) 100%);
+            transition: all 500ms ease-in;
+            transition-delay: 0s;
+        }
+
+            .infocardContainer:hover {
+                width: 500px;
+                border-radius: 100px 10px 100px 100px;
+                transition: all 1s ease-out;
+            }
+
+            .infocardContainer div * {
+                display: flex;
+                --flex: inherit;
+                overflow: hidden;
+                text-overflow: hidden;
+                color: white;
+                white-space: nowrap;
+                width: 0;
+                height: auto;
+                transition: all 450ms ease-in;
+                transition-delay: 0s;
+            }
+
+            .infocardContainer:hover div * {
+                color: #191970;
+                display: flex;
+                visibility: visible;
+                transition: all 1s ease-out;
+                transition-delay: 500ms;
+                width: 100%;
+                height: auto;
+            }
+
+            .infocardContainer #main,
+            .infocardContainer #main img {
+                --background-color: red;
+                height: 200px;
+                width: 200px;
+                padding-right: 10px;
+                border-radius: 100%;
+                flex-shrink: 0;
+                object-fit: cover;
+            }
+
+                .infocardContainer #main img {
+                    height: 180px;
+                    width: 180px;
+                    transition: none;
+                    display: float;
+                    position: relative;
+                    border: 10px solid white;
+                    margin: 0 0 0 0;
+                    padding: 0 0 0 0;
+                }
+
+            .infocardContainer #textbois {
+                position: relative;
+                margin-top: 50px;
+                color: #191970;
+            }
+
+        .left {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            top:-20px;
+        }
+
+        .right {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            top: -10px;
+        }
+        }
+
+        .infocardContainer {
+            margin: 20px;
+        }
+
+        .copyright {
+            position: relative;
+          bottom:-70px;
+            width: 100%;
+            text-align: left;
+        }
+
+        input:focus {
+            border-color: #0075ff;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <header>
+        <a href="group_calculator.html" class="logo"> <img src="logo.png" /> </a>
+        <ul class="navigation">
+            <li> <a href="group_calculator.html"> <b>Converter</b> </a> </li>
+            <li> <a href="aboutus.html"> <b>About</b> </a> </li>
+        </ul>
+    </header>
+    <div class="left">
+        <div class="infocardContainer">
+            <div id="main">
+                <img src="fariss.jpg" />
+            </div>
+            <div id="textbois">
+                <h1>FARIS ISKANDAR <br /> BIN AZHAN</h1>
+                <h2>2022970663</h2>
+            </div>
+        </div>
+        <div class="infocardContainer">
+            <div id="main">
+                <img src="mirul.jpg" />
+            </div>
+            <div id="textbois">
+                <h1>AMIRUL IMAN <br /> BIN AIZUL HIZAM</h1>
+                <h2>2022970663</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="infocardContainer">
+            <div id="main">
+                <img src="kalip.jpg" />
+            </div>
+            <div id="textbois">
+                <h1>HAIKAL ALIF<br /> BIN NORAZMI</h1>
+                <h2>2022772091</h2>
+            </div>
+        </div>
+        <div class="infocardContainer">
+            <div id="main">
+                <img src="yaya.jpg" />
+            </div>
+            <div id="textbois">
+                <h1>SOFIE SOFEA<br /> BINTI AHMAD <br /> SAHARUDDIN</h1>
+                <h2>2021494672</h2>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="copyright">
+        <footer>
+            <p>
+                &copy; 2023 Number Converter. All rights reserved. | Disclaimer: The information on this website
+                <br />
+                is for general purposes only and does not constitute legal, financial, or professional advice.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
